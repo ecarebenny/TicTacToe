@@ -3,6 +3,7 @@ import com.practice.tictactoe.models.Game;
 import com.practice.tictactoe.models.GameStatus;
 import com.practice.tictactoe.models.Player;
 import exceptions.InvalidDimensionException;
+import exceptions.InvalidMoveException;
 import exceptions.InvalidNumberOfPlayers;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TicTacToeMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidMoveException {
         Scanner scanner = new Scanner(System.in);
         GameController gameController = new GameController();
 

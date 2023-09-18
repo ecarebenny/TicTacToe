@@ -3,6 +3,7 @@ package com.practice.tictactoe.models;
 import com.practice.tictactoe.strategies.GameWinningStrategy;
 import com.practice.tictactoe.strategies.OrderOneWinningStrategy;
 import exceptions.InvalidDimensionException;
+import exceptions.InvalidMoveException;
 import exceptions.InvalidNumberOfPlayers;
 
 import java.util.ArrayList;
@@ -82,7 +83,7 @@ public class Game {
         this.getBoard().displayBoard();
     }
 
-    public void executeNextMove() {
+    public void executeNextMove() throws  InvalidMoveException {
         //get next player to move
         Player currentMovePlayer = players.get(nextPlayerIndex);
 
@@ -96,10 +97,14 @@ public class Game {
 
 
         //if valid make the move
-//        if(isValidMove){
+        if(isValidMove){
             board.getBoard().get(row).get(col).setCellState(CellState.FILLED);
             board.getBoard().get(row).get(col).setPlayer(currentMovePlayer);
-//        }
+        }
+        else
+        {
+            throw new InvalidMoveException("Invalid Move");
+        }
 
         //add this move in the final list of moves
         moves.add(move);

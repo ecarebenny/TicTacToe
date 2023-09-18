@@ -4,6 +4,7 @@ import com.practice.tictactoe.models.Game;
 import com.practice.tictactoe.models.GameStatus;
 import com.practice.tictactoe.models.Player;
 import exceptions.InvalidDimensionException;
+import exceptions.InvalidMoveException;
 import exceptions.InvalidNumberOfPlayers;
 
 import java.util.List;
@@ -29,8 +30,7 @@ public class GameController {
     public Player getWinner(Game game) {
         return game.getWinner();
     }
-    public void executeNextMove(Game game)
-    {
+    public void executeNextMove(Game game) throws InvalidMoveException {
         game.executeNextMove();
     }
 }
